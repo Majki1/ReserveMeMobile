@@ -1,14 +1,16 @@
 import React, {useState} from 'react';
 import { View, Text, StyleSheet, ImageBackground, TextInput, TouchableOpacity } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 
-function LoginScreen(props) {
+
+
+function LoginScreen({navigation}) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
     const handleLogin = () => {
-        alert('Username: ' + username + ', Password: ' + password);
-    }
+        // Handle login here
+        navigation.navigate('Home');
+      };
     
     return (
            <ImageBackground source={require('../assets/Dark.png')} style={styles.container}>
