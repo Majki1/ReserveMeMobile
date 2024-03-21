@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, ImageBackground, SafeAreaView, View, Text, Platform } from "react-native";
+import { StyleSheet, ImageBackground, SafeAreaView, View, Text, Platform, TouchableOpacity } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -30,6 +30,7 @@ export default function InboxScreen({ navigation }) {
             data={messsageData}
             style={{ width: '100%' }}
             renderItem={({ item }) => (
+                <TouchableOpacity onPress={() => navigation.navigate('DM', { messageId: item.id })}>
                 <View style={{ flexDirection: 'row', padding: 20, borderBottomColor: 'gray', borderBottomWidth: 0.5, width: '100%' }}>
                 <View style={styles.avatarPlaceholder} />
                 <View style={{ marginLeft: 10 }}>
@@ -38,6 +39,7 @@ export default function InboxScreen({ navigation }) {
                     <Text style={{ color: 'white' }}>{item.description}</Text>
                 </View>
                 </View>
+                </TouchableOpacity>
             )}
             keyExtractor={(item) => item.id.toString()}
         />

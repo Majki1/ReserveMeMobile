@@ -7,7 +7,7 @@ export default function Footer({ }) {
     const navigation = useNavigation();
 
     const handleProfile = () => {
-        navigation.navigate('Login');
+        navigation.navigate('Profile');
     }
     return (
     <SafeAreaView style={styles.footer}>
